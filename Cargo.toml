@@ -1,21 +1,29 @@
-[workspace]
-resolver = "2"
-members = [
-    "base16ct",
-    "base64ct",
-    "const-oid",
-    "der",
-    "der/derive",
-    "pem-rfc7468",
-    "pkcs1",
-    "pkcs5",
-    "pkcs7",
-    "pkcs8",
-    "sec1",
-    "spki",
-    "ssh-key",
-    "tai64",
-    "tls_codec",
-    "tls_codec/derive",
-    "x509"
-]
+[package]
+name = "x509"
+version = "0.0.1" # Also update html_root_url in lib.rs when bumping this
+description = """
+Pure Rust implementation of the X.509 Public Key Infrastructure Certificate
+format as described in RFC 5280
+"""
+authors = ["RustCrypto Developers"]
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/RustCrypto/formats/tree/master/x509"
+categories = ["cryptography", "data-structures", "encoding", "no-std"]
+keywords = ["crypto", "x.509"]
+readme = "README.md"
+edition = "2021"
+rust-version = "1.56"
+
+[dependencies]
+der = { version = "=0.6.0-pre.0", features = ["derive", "alloc"], path = "../der" }
+spki = { version = "=0.6.0-pre", path = "../spki" }
+
+[dev-dependencies]
+hex-literal = "0.3"
+
+[features]
+std = ["der/std"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

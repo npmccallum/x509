@@ -2,18 +2,8 @@ name: x509
 
 on:
   pull_request:
-    paths:
-      - "const-oid/**"
-      - "der/**"
-      - "spki/**"
-      - "x509/**"
-      - "Cargo.*"
   push:
     branches: master
-
-defaults:
-  run:
-    working-directory: x509
 
 env:
   CARGO_INCREMENTAL: 0
